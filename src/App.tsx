@@ -1,7 +1,11 @@
-import "./App.css";
+import VirtualDisplay from "./Components/VirtualDisplay/VirtualDisplay";
 
 function App() {
-  return <>testbranch1</>;
+  return (
+    <>
+      <VirtualDisplay />
+    </>
+  );
 }
 
 export default App;
