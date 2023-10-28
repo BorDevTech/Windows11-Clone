@@ -1,5 +1,5 @@
 import * as CUR from "@chakra-ui/react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 const VirtualDisplay = () => {
   const [appAmountObject, setCurrentAppAmount] = useState({
@@ -69,6 +69,7 @@ const VirtualDisplay = () => {
               <CUR.Box>
                 {/* Should consist of App Name */}
                 {i}
+                {index}
               </CUR.Box>
             </CUR.VStack>
           </CUR.GridItem>
