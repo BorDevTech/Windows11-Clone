@@ -1,5 +1,6 @@
 import * as CUR from "@chakra-ui/react";
 import { useEffect, useState } from "react";
+import AppWindow from "./../AppScreen/AppWindow";
 
 const VirtualDisplay = () => {
   const [appAmountObject, setCurrentAppAmount] = useState({
@@ -98,6 +99,7 @@ const VirtualDisplay = () => {
             <CUR.Icon justifyContent={"center"}></CUR.Icon>
           </CUR.Box>
         </CUR.HStack>
+        <AppWindow />
       </CUR.GridItem>
     </CUR.Grid>
   );
