@@ -1,6 +1,7 @@
 import * as CUR from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import AppWindow from "./../AppScreen/AppWindow";
+import Taskbar from "./../TaskBar/taskbar";
 
 const VirtualDisplay = () => {
   const [appAmountObject, setCurrentAppAmount] = useState({
@@ -83,23 +84,7 @@ const VirtualDisplay = () => {
         borderTop={"2px"}
         borderTopRadius={0}
       >
-        <CUR.HStack justifyContent={"center"} mt={2} mb={2}>
-          <CUR.Box h={"40px"} w={"40px"} style={{ border: "1px solid blue" }}>
-            <CUR.Icon justifyContent={"center"}></CUR.Icon>
-          </CUR.Box>
-          <CUR.Box h={"40px"} w={"40px"} style={{ border: "1px solid indigo" }}>
-            <CUR.Icon justifyContent={"center"}></CUR.Icon>
-          </CUR.Box>
-          <CUR.Box h={"40px"} w={"40px"} style={{ border: "1px solid violet" }}>
-            <CUR.Icon justifyContent={"center"}></CUR.Icon>
-          </CUR.Box>
-          <CUR.Box h={"40px"} w={"40px"} style={{ border: "1px solid pink" }}>
-            <CUR.Icon justifyContent={"center"}></CUR.Icon>
-          </CUR.Box>
-          <CUR.Box h={"40px"} w={"40px"} style={{ border: "1px solid grey" }}>
-            <CUR.Icon justifyContent={"center"}></CUR.Icon>
-          </CUR.Box>
-        </CUR.HStack>
+        <Taskbar />
       </CUR.GridItem>
     </CUR.Grid>
   );
