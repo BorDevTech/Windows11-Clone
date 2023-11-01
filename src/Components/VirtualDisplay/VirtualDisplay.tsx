@@ -75,6 +75,7 @@ const VirtualDisplay = () => {
             </CUR.VStack>
           </CUR.GridItem>
         ))}
+        <AppWindow />
       </CUR.GridItem>
       <CUR.GridItem
         rowSpan={1}
@@ -99,7 +100,6 @@ const VirtualDisplay = () => {
             <CUR.Icon justifyContent={"center"}></CUR.Icon>
           </CUR.Box>
         </CUR.HStack>
-        <AppWindow />
       </CUR.GridItem>
     </CUR.Grid>
   );
