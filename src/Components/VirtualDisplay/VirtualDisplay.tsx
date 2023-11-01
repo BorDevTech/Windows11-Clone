@@ -2,6 +2,7 @@ import * as CUR from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import AppWindow from "./../AppScreen/AppWindow";
 import Taskbar from "./../TaskBar/taskbar";
+import DesktopButton from "./../Buttons/DesktopButton/DesktopButton";
 
 const VirtualDisplay = () => {
   const [appAmountObject, setCurrentAppAmount] = useState({
@@ -54,29 +55,25 @@ const VirtualDisplay = () => {
         templateColumns={`repeat(20,1fr)`}
         templateRows={`repeat(9,1fr)`}
       >
-        {GenerateApps.map((index, i) => (
-          <CUR.GridItem key={i} rowSpan={1} colSpan={1}>
-            <CUR.VStack gap={0}>
-              <CUR.Box
-                mt={2}
-                h={"60px"}
-                w={"60px"}
-                style={{ border: "1px solid blue" }}
-                as={CUR.Card}
-              >
-                <CUR.Icon justifyContent={"center"}>
-                  {/* Icon shall be either a community(backer), creator, generic design */}
-                </CUR.Icon>
-              </CUR.Box>
-              <CUR.Box>
-                {/* Should consist of App Name */}
-                {i}
-                {index}
-              </CUR.Box>
-            </CUR.VStack>
-          </CUR.GridItem>
-        ))}
-        <AppWindow />
+        {GenerateApps.map(
+          (
+            //@ts-ignore
+            i,
+            index
+          ) => (
+            <CUR.GridItem
+              key={index}
+              rowSpan={1}
+              colSpan={1}
+              onClick={() => {
+                console.log(index);
+              }}
+            >
+              <DesktopButton index={index} />
+            </CUR.GridItem>
+          )
+        )}
+        {/* <AppWindow /> */}
       </CUR.GridItem>
       <CUR.GridItem
         rowSpan={1}

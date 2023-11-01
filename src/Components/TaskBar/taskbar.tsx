@@ -1,5 +1,5 @@
 import * as CUR from "@chakra-ui/react";
-import AppButton from "../AppButton/AppButton";
+import AppButton from "../Buttons/AppButton/AppButton";
 
 const Taskbar = () => {
   return (
