@@ -40,6 +40,8 @@ const VirtualDisplay = () => {
 
   const GenerateApps = [...Array(appAmountObject.current)];
 
+  const [activeApp, setAppActive] = useState(true);
+
   return (
     <CUR.Grid
       templateRows={`repeat(20,1fr)`}
@@ -55,24 +57,43 @@ const VirtualDisplay = () => {
         templateColumns={`repeat(20,1fr)`}
         templateRows={`repeat(9,1fr)`}
       >
-        {GenerateApps.map(
-          (
-            //@ts-ignore
-            i,
-            index
-          ) => (
-            <CUR.GridItem
-              key={index}
-              rowSpan={1}
-              colSpan={1}
-              onClick={() => {
-                console.log(index);
-              }}
-            >
-              <DesktopButton index={index} />
-            </CUR.GridItem>
-          )
+        {activeApp ? (
+          <CUR.GridItem
+            rowSpan={9}
+            colSpan={20}
+            as={CUR.Box}
+            // ref={}
+          >
+            <CUR.Button onClick={() => setAppActive(!activeApp)}>
+              Active?: {`${activeApp}`}
+            </CUR.Button>
+          </CUR.GridItem>
+        ) : (
+          <>
+            <CUR.Button onClick={() => setAppActive(!activeApp)}>
+              Active?: {`${activeApp}`}
+            </CUR.Button>
+            {GenerateApps.map(
+              (
+                //@ts-ignore
+                i,
+                index
+              ) => (
+                <CUR.GridItem
+                  key={index}
+                  rowSpan={1}
+                  colSpan={1}
+                  onClick={() => {
+                    console.log(index);
+                  }}
+                >
+                  <DesktopButton index={index} />
+                </CUR.GridItem>
+              )
+            )}
+          </>
         )}
+
         {/* <AppWindow /> */}
       </CUR.GridItem>
       <CUR.GridItem
