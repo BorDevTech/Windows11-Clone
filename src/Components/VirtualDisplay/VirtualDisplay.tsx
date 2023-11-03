@@ -12,15 +12,15 @@ const VirtualDisplay = () => {
       as={CUR.Card}
       h={innerHeight}
       w={innerWidth}
-      style={{ border: "1px solid red" }}
     >
       <CUR.GridItem
         rowSpan={19}
-        style={{ border: "1px solid orange" }}
         as={CUR.Grid}
         templateColumns={`repeat(20,1fr)`}
         templateRows={`repeat(9,1fr)`}
         ref={testRef}
+        pt={2}
+        pb={4}
       >
         <GeneratedApps portal={testRef} />
       </CUR.GridItem>
@@ -28,6 +28,7 @@ const VirtualDisplay = () => {
         rowSpan={1}
         as={CUR.Card}
         borderTop={"2px"}
+        borderColor={"blackAlpha.400"}
         borderTopRadius={0}
       >
         <Taskbar portal={testRef} />
