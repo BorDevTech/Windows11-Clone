@@ -35,7 +35,11 @@ const distributeDesktopApps = (
   const linkList = array.map((index) => (
     <Link to={index.path} key={index.path}>
       <CUR.GridItem rowSpan={1} colSpan={1}>
-        <OpenApp portal={portal} index={index.path} position={"Desktop"} />
+        <OpenApp
+          portal={portal}
+          index={index.element.type.name}
+          position={"Desktop"}
+        />
       </CUR.GridItem>
     </Link>
   ));
