@@ -7,14 +7,22 @@ assignees: ''
 
 ---
 
-**Is your feature request related to a problem? Please describe.**
-A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
+HOW:
 
-**Describe the solution you'd like**
-A clear and concise description of what you want to happen.
+>  (Add the description of how this main idea should work)
 
-**Describe alternatives you've considered**
-A clear and concise description of any alternative solutions or features you've considered.
+REQUIREMENTS:
 
-**Additional context**
-Add any other context or screenshots about the feature request here.
+>  (Add an "exact" Requirement of how to complete the task)
+
+
+EXTRAS: 
+>  (Add an enhanced feature that may solve or future-proof the workflow of this idea
+- (Add a brief description of how the above item could be incorporated)  
+
+<hr/> 
+
+**Refined Checklist** 
+
+- [ ]  (list all Requirements or Extras that has been completed with a "x" or " " in bracket if current)
+> **Fufilled/In-Progress** - (When item above is done, replace this text with how, otherwise keep in progress)
