@@ -10,7 +10,7 @@ const Start = () => {
   let pinnedApps = [];
   for (let i = 0; i < 18; i++) {
     pinnedApps.push(
-      <CUR.GridItem as={CUR.Box} p={2}>
+      <CUR.GridItem as={CUR.Box} p={2} key={i}>
         <CUR.Button textAlign={"center"} h={10} w={10}>
           {i + 1}
         </CUR.Button>
