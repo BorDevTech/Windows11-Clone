@@ -26,6 +26,7 @@ Props) => {
         onClose={onClose}
         motionPreset="slideInBottom"
         size={" "}
+        closeOnOverlayClick={false}
       >
         <CUR.ModalOverlay height={portal.current?.clientHeight} />
         <CUR.ModalContent
@@ -36,49 +37,41 @@ Props) => {
         >
           <CUR.VStack>
             {/* App <CUR.Icon /> */}
-            <CUR.Grid
-              templateColumns={`repeat( 4,1fr)`}
-              templateRows={`repeat(1,1fr)`}
-            >
-              <CUR.GridItem colSpan={1} rowSpan={1}>
-                <CUR.ModalHeader>{index}</CUR.ModalHeader>
-              </CUR.GridItem>
-              <CUR.GridItem>
-                <CUR.Spacer />
-                <CUR.Spacer />
-              </CUR.GridItem>
-              <CUR.GridItem colSpan={1} rowSpan={1}>
-                <CUR.HStack spacing={0}>
-                  {" "}
-                  <CUR.Center>
-                    <CUR.IconButton
-                      variant={"ghost"}
-                      size={"sm"}
-                      aria-label="Search database"
-                      icon={<CUI.MinusIcon />}
-                      borderRadius={0}
-                      isDisabled
-                    />
-                    <CUR.IconButton
-                      variant={"ghost"}
-                      size={"sm"}
-                      aria-label="Search database"
-                      icon={<CUI.CopyIcon />}
-                      transform={"rotate(90deg)"}
-                      borderRadius={0}
-                      isDisabled
-                    />
+            <CUR.Flex w={innerWidth} borderBottom={"1px solid"} p={2}>
+              <CUR.ModalHeader p={0} m={0}>
+                {index}
+              </CUR.ModalHeader>
+              <CUR.Spacer p={0} m={0} />
+              <CUR.Spacer p={0} m={0} />
+              <CUR.HStack spacing={0} p={0} m={0}>
+                <CUR.Center>
+                  <CUR.IconButton
+                    variant={"ghost"}
+                    size={"sm"}
+                    aria-label="Search database"
+                    icon={<CUI.MinusIcon />}
+                    borderRadius={0}
+                    isDisabled
+                  />
+                  <CUR.IconButton
+                    variant={"ghost"}
+                    size={"sm"}
+                    aria-label="Search database"
+                    icon={<CUI.CopyIcon />}
+                    transform={"rotate(90deg)"}
+                    borderRadius={0}
+                    isDisabled
+                  />
 
-                    <CUR.ModalCloseButton
-                      position={"unset"}
-                      _hover={{ bg: "red.500" }}
-                      borderRadius={0}
-                      onClick={() => navigate("/Windows11-Clone/")}
-                    />
-                  </CUR.Center>
-                </CUR.HStack>
-              </CUR.GridItem>
-            </CUR.Grid>
+                  <CUR.ModalCloseButton
+                    position={"unset"}
+                    _hover={{ bg: "red.500" }}
+                    borderRadius={0}
+                    onClick={() => navigate("/Windows11-Clone/")}
+                  />
+                </CUR.Center>
+              </CUR.HStack>
+            </CUR.Flex>
 
             <CUR.ModalBody>
               <RouteList />

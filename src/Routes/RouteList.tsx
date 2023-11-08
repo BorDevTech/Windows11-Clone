@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router";
-import { Start } from ".";
+import { Start, Notes, Search, ToDos, Store, Chat, Calculator } from ".";
 import { Link } from "react-router-dom";
 import * as CUR from "@chakra-ui/react";
 import OpenApp from "../Logic/openModals";
@@ -9,12 +9,12 @@ interface Props {
 }
 const namedRoutes = [
   { path: "/Windows11-Clone/app/Start", element: <Start /> },
-  { path: "/Windows11-Clone/app/1", element: <Start /> },
-  { path: "/Windows11-Clone/app/2", element: <Start /> },
-  { path: "/Windows11-Clone/app/3", element: <Start /> },
-  { path: "/Windows11-Clone/app/4", element: <Start /> },
-  { path: "/Windows11-Clone/app/5", element: <Start /> },
-  { path: "/Windows11-Clone/app/6", element: <Start /> },
+  { path: "/Windows11-Clone/app/Notes", element: <Notes /> },
+  { path: "/Windows11-Clone/app/Search", element: <Search /> },
+  { path: "/Windows11-Clone/app/ToDos", element: <ToDos /> },
+  { path: "/Windows11-Clone/app/Store", element: <Store /> },
+  { path: "/Windows11-Clone/app/Chat", element: <Chat /> },
+  { path: "/Windows11-Clone/app/Calculator", element: <Calculator /> },
 ];
 
 const RouteList = () => {
