@@ -1,18 +1,14 @@
 import * as CUR from "@chakra-ui/react";
 import * as AI from "react-icons/ai";
 import * as IO5 from "react-icons/io5";
-import { useRef } from "react";
 
 const Start = () => {
-  //@ts-ignore
-  let pinnedButtons = useRef<HTMLElement>(null);
-
   let pinnedApps = [];
   for (let i = 0; i < 18; i++) {
     pinnedApps.push(
       <CUR.GridItem as={CUR.Box} p={2} key={i}>
         <CUR.Button textAlign={"center"} h={10} w={10}>
-          {i + 1}
+          {i}
         </CUR.Button>
       </CUR.GridItem>
     );

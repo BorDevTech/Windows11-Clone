@@ -8,13 +8,17 @@ interface Props {
   portal: any;
 }
 const namedRoutes = [
-  { path: "/Windows11-Clone/app/Start", element: <Start /> },
-  { path: "/Windows11-Clone/app/Notes", element: <Notes /> },
-  { path: "/Windows11-Clone/app/Search", element: <Search /> },
-  { path: "/Windows11-Clone/app/ToDos", element: <ToDos /> },
-  { path: "/Windows11-Clone/app/Store", element: <Store /> },
-  { path: "/Windows11-Clone/app/Chat", element: <Chat /> },
-  { path: "/Windows11-Clone/app/Calculator", element: <Calculator /> },
+  { name: "Start", path: "/Windows11-Clone/app/Start", element: <Start /> },
+  { name: "Notes", path: "/Windows11-Clone/app/Notes", element: <Notes /> },
+  { name: "Search", path: "/Windows11-Clone/app/Search", element: <Search /> },
+  { name: "ToDos", path: "/Windows11-Clone/app/ToDos", element: <ToDos /> },
+  { name: "Store", path: "/Windows11-Clone/app/Store", element: <Store /> },
+  { name: "Chat", path: "/Windows11-Clone/app/Chat", element: <Chat /> },
+  {
+    name: "Calculator",
+    path: "/Windows11-Clone/app/Calculator",
+    element: <Calculator />,
+  },
 ];
 
 const RouteList = () => {
@@ -29,17 +33,13 @@ const RouteList = () => {
   );
 };
 const distributeDesktopApps = (
-  array: { path: string; element: JSX.Element }[],
+  array: { path: string; name: string }[],
   portal: any
 ) => {
   const linkList = array.map((index) => (
     <Link to={index.path} key={index.path}>
-      <CUR.GridItem rowSpan={1} colSpan={1}>
-        <OpenApp
-          portal={portal}
-          index={index.element.type.name}
-          position={"Desktop"}
-        />
+      <CUR.GridItem rowSpan={1} colSpan={1} onClick={() => console.log(index)}>
+        <OpenApp portal={portal} index={index.name} position={"Desktop"} />
       </CUR.GridItem>
     </Link>
   ));
