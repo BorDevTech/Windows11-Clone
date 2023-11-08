@@ -2,7 +2,7 @@ import { useRef } from "react";
 import * as CUR from "@chakra-ui/react";
 import Taskbar from "./../TaskBar/taskbar";
 import { DistributedDesktopApps } from "./../../Routes/RouteList";
-// import GeneratedApps from "./../../Logic/generateApps";
+import GeneratedApps from "./../../Logic/generateApps";
 
 const VirtualDisplay = () => {
   const testRef = useRef<any>();
@@ -24,7 +24,7 @@ const VirtualDisplay = () => {
         pb={4}
       >
         <DistributedDesktopApps portal={testRef} />
-        {/* <GeneratedApps portal={testRef} /> */}
+        <GeneratedApps portal={testRef} />
       </CUR.GridItem>
       <CUR.GridItem
         rowSpan={1}
