@@ -1,36 +1,80 @@
+import * as CUR from "@chakra-ui/react";
+import * as AI from "react-icons/ai";
+import * as IO5 from "react-icons/io5";
+import { useRef } from "react";
+
 const Start = () => {
+  //@ts-ignore
+  let pinnedButtons = useRef<HTMLElement>(null);
+
+  let pinnedApps = [];
+  for (let i = 0; i < 18; i++) {
+    pinnedApps.push(
+      <CUR.GridItem as={CUR.Box} p={2}>
+        <CUR.Button textAlign={"center"} h={10} w={10}>
+          {i + 1}
+        </CUR.Button>
+      </CUR.GridItem>
+    );
+  }
   return (
     <>
-      <div id="sidebar">
-        <h1>React Router Contacts</h1>
-        <div>
-          <form id="search-form" role="search">
-            <input
-              id="q"
-              aria-label="Search contacts"
-              placeholder="Search"
-              type="search"
-              name="q"
-            />
-            <div id="search-spinner" aria-hidden hidden={true} />
-            <div className="sr-only" aria-live="polite"></div>
-          </form>
-          <form method="post">
-            <button type="submit">New</button>
-          </form>
-        </div>
-        <nav>
-          <ul>
-            <li>
-              <a href={`/contacts/1`}>Your Name</a>
-            </li>
-            <li>
-              <a href={`/contacts/2`}>Your Friend</a>
-            </li>
-          </ul>
-        </nav>
-      </div>
-      <div id="detail"></div>
+      <CUR.Grid>
+        <CUR.GridItem as={CUR.Grid}>
+          <CUR.GridItem mt={4} mb={8}>
+            <CUR.Input placeholder="Search for apps" />
+          </CUR.GridItem>
+          <CUR.GridItem>
+            <CUR.HStack>
+              <CUR.Text>Pinned Apps</CUR.Text>
+              <CUR.Button>All Apps</CUR.Button>
+            </CUR.HStack>
+
+            <CUR.Grid templateColumns={`repeat(6,1fr)`}>
+              {pinnedApps}
+              {/* Render 6 Pinned Apps per row from ../Backend as GridItems*/}
+            </CUR.Grid>
+          </CUR.GridItem>
+          <CUR.GridItem>
+            Recommended Apps
+            <CUR.Grid>
+              {/* Render 8 Sponsored Apps from ../Backend as GridItems*/}
+            </CUR.Grid>
+          </CUR.GridItem>
+        </CUR.GridItem>
+        <CUR.GridItem as={CUR.Grid} templateColumns={`repeat(4,1fr)`}>
+          <CUR.GridItem colSpan={2}>
+            <CUR.Button
+              bg={"blackAlpha"}
+              leftIcon={
+                <CUR.Avatar
+                  icon={<AI.AiOutlineUser fontSize="1.5rem" />}
+                  size={"sm"}
+                />
+              }
+            >
+              Login
+            </CUR.Button>
+          </CUR.GridItem>
+          <CUR.GridItem colSpan={2}>
+            <CUR.Menu direction={"rtl"} placement="top" preventOverflow>
+              <CUR.MenuButton as={CUR.Button} bg={"blackAlpha"}>
+                <AI.AiOutlinePoweroff fontSize="1.5rem" />
+              </CUR.MenuButton>
+              <CUR.MenuList>
+                <CUR.MenuItem as={CUR.Button}>Sign-in options</CUR.MenuItem>
+                <CUR.MenuDivider />
+                <CUR.MenuItem as={CUR.Button}>
+                  <IO5.IoMoonOutline />
+                  Sleep
+                </CUR.MenuItem>
+                <CUR.MenuItem as={CUR.Button}>Shut down</CUR.MenuItem>
+                <CUR.MenuItem as={CUR.Button}>Restart</CUR.MenuItem>
+              </CUR.MenuList>
+            </CUR.Menu>
+          </CUR.GridItem>
+        </CUR.GridItem>
+      </CUR.Grid>
     </>
   );
 };

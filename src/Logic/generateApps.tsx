@@ -1,6 +1,7 @@
 import { useState } from "react";
 import * as CUR from "@chakra-ui/react";
 import OpenApp from "./openModals";
+import { Link } from "react-router-dom";
 
 interface Props {
   portal: any;
@@ -24,16 +25,11 @@ const GeneratedApps = ({ portal }: Props) => {
   const listedApps = [];
   for (let i = 0; i < appAmountObject.min; i++) {
     listedApps.push(
-      <CUR.GridItem
-        key={i}
-        rowSpan={1}
-        colSpan={1}
-        onClick={() => {
-          console.log(i);
-        }}
-      >
-        <OpenApp portal={portal} index={i} position={"Desktop"} />
-      </CUR.GridItem>
+      <Link to={`Windows11-Clone/app/${i}`} key={i}>
+        <CUR.GridItem rowSpan={1} colSpan={1}>
+          <OpenApp portal={portal} index={i} position={"Desktop"} />
+        </CUR.GridItem>
+      </Link>
     );
   }
   return <>{listedApps}</>;
