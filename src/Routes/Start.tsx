@@ -4,7 +4,7 @@ import * as IO5 from "react-icons/io5";
 
 const Start = () => {
   let pinnedApps = [];
-  for (let i = 0; i < 18; i++) {
+  for (let i = 0; i < 12; i++) {
     pinnedApps.push(
       <CUR.GridItem as={CUR.Box} p={2} key={i}>
         <CUR.Button textAlign={"center"} h={10} w={10}>
@@ -13,10 +13,20 @@ const Start = () => {
       </CUR.GridItem>
     );
   }
+  let recommendedApps = [];
+  for (let i = 0; i < 8; i++) {
+    recommendedApps.push(
+      <CUR.GridItem as={CUR.Box} p={2} key={i}>
+        <CUR.Button textAlign={"right"} h={"55px"} w={"275px"}>
+          {i}
+        </CUR.Button>
+      </CUR.GridItem>
+    );
+  }
   return (
     <>
       <CUR.Grid>
-        <CUR.GridItem as={CUR.Grid}>
+        <CUR.GridItem as={CUR.Grid} bg={"#323232"}>
           <CUR.GridItem mt={4} mb={8}>
             <CUR.Input placeholder="Search for apps" />
           </CUR.GridItem>
@@ -28,47 +38,52 @@ const Start = () => {
 
             <CUR.Grid templateColumns={`repeat(6,1fr)`}>
               {pinnedApps}
-              {/* Render 6 Pinned Apps per row from ../Backend as GridItems*/}
+              {/* Render 6 Pinned Apps per row from ../Backend as GridItems
+              replace current list using pagination if beyond 12*/}
             </CUR.Grid>
           </CUR.GridItem>
           <CUR.GridItem>
             Recommended Apps
-            <CUR.Grid>
+            <CUR.Grid templateColumns={`repeat(2,1fr)`}>
+              {recommendedApps}
               {/* Render 8 Sponsored Apps from ../Backend as GridItems*/}
             </CUR.Grid>
           </CUR.GridItem>
         </CUR.GridItem>
-        <CUR.GridItem as={CUR.Grid} templateColumns={`repeat(4,1fr)`}>
-          <CUR.GridItem colSpan={2}>
-            <CUR.Button
-              bg={"blackAlpha"}
-              leftIcon={
-                <CUR.Avatar
-                  icon={<AI.AiOutlineUser fontSize="1.5rem" />}
-                  size={"sm"}
-                />
-              }
-            >
-              Login
-            </CUR.Button>
-          </CUR.GridItem>
-          <CUR.GridItem colSpan={2}>
-            <CUR.Menu direction={"rtl"} placement="top" preventOverflow>
-              <CUR.MenuButton as={CUR.Button} bg={"blackAlpha"}>
-                <AI.AiOutlinePoweroff fontSize="1.5rem" />
-              </CUR.MenuButton>
-              <CUR.MenuList>
-                <CUR.MenuItem as={CUR.Button}>Sign-in options</CUR.MenuItem>
-                <CUR.MenuDivider />
-                <CUR.MenuItem as={CUR.Button}>
-                  <IO5.IoMoonOutline />
-                  Sleep
-                </CUR.MenuItem>
-                <CUR.MenuItem as={CUR.Button}>Shut down</CUR.MenuItem>
-                <CUR.MenuItem as={CUR.Button}>Restart</CUR.MenuItem>
-              </CUR.MenuList>
-            </CUR.Menu>
-          </CUR.GridItem>
+        <CUR.GridItem as={CUR.Flex} bg={"#292929"}>
+          <CUR.Button
+            bg={"blackAlpha"}
+            leftIcon={
+              <CUR.Avatar
+                icon={<AI.AiOutlineUser fontSize="1.5rem" />}
+                size={"sm"}
+              />
+            }
+          >
+            Login
+          </CUR.Button>
+          <CUR.Spacer />
+          <CUR.Menu direction={"rtl"} placement="top-end" preventOverflow>
+            <CUR.MenuButton as={CUR.Button} bg={"blackAlpha"}>
+              <AI.AiOutlinePoweroff fontSize="1.5rem" />
+            </CUR.MenuButton>
+            <CUR.MenuList>
+              <CUR.MenuItem as={CUR.Button} ml={2} mr={2}>
+                Sign-in options
+              </CUR.MenuItem>
+              <CUR.MenuDivider />
+              <CUR.MenuItem as={CUR.Button} p={0} m={0}>
+                <IO5.IoMoonOutline />
+                Sleep
+              </CUR.MenuItem>
+              <CUR.MenuItem as={CUR.Button} p={0} m={0}>
+                Shut down
+              </CUR.MenuItem>
+              <CUR.MenuItem as={CUR.Button} p={0} m={0}>
+                Restart
+              </CUR.MenuItem>
+            </CUR.MenuList>
+          </CUR.Menu>
         </CUR.GridItem>
       </CUR.Grid>
     </>
